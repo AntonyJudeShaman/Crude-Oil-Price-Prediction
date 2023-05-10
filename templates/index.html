@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARIMA Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <script>
+       function calculatePrediction() {
+    var start_date = new Date(document.getElementById("start_date").value);
+    var end_date = new Date(document.getElementById("end_date").value);
+    var time_difference = end_date - start_date;
+    var days_difference = Math.ceil(time_difference / (1000 * 60 * 60 * 24));
+    //var prediction = [];
+    
+    // Call arima_model.predict() with start and end dates to get predicted values
+    // Replace this code with actual prediction using your ARIMA model
+    //var predicted_values = [1, 2, 3, 4, 5]; // Example predicted values
+    
+    // Loop through dates and predicted values to construct prediction string
+    }
+    </script>
+</head>
+<body>
+    <h1>Crude Oil Price Prediction</h1>
+    <form method="post" action="/predict">
+        <h3>Start Date:</h3>
+        <input type="date" id="start_date" name="start_date" required>
+        <br>
+        <h3>End Date:</h3>
+        <input type="date" id="end_date" name="end_date" required>
+        <br>
+        <h3>Predicted Values:</h3>
+        <div id="predbox">
+            <textarea id="prediction"   rows="8" cols="35" readonly>{{prediction}}</textarea>
+            <img src="{{graph}}" />
+        </div>
+        <br><br>
+        <input class="submit" type="submit" value="PREDICT">
+    </form>
+</body>
+</html>
 
